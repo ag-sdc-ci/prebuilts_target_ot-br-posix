@@ -1,0 +1,61 @@
+// Auto-generated prebuilt Blueprint for prebuilts_target_ot-br-posix
+// Staged from Extractive APEX package: ext-ot-br-posix (org.blisslabs.ag.ext.ot-br-posix)
+
+package {
+    default_applicable_licenses: ["external_ot-br-posix_license"],
+}
+
+license {
+    name: "external_ot-br-posix_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "SPDX-license-identifier-Apache-2.0",
+        "SPDX-license-identifier-BSD",
+        "SPDX-license-identifier-MIT",
+    ],
+    license_text: [
+        "LICENSE",
+        "NOTICE",
+    ],
+}
+
+cc_prebuilt_binary {
+    name: "ot-daemon",
+    srcs: ["bin/ot-daemon"],
+    shared_libs: [
+        "libbase",
+        "libutils",
+        "libcutils",
+        "libbinder_ndk",
+        "liblog",
+        "libstatssocket",
+        "libprotobuf-cpp-lite",
+    ],
+    apex_available: [
+        "com.android.tethering",
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+}
+
+cc_prebuilt_library_static {
+    name: "libstatslog_threadnetwork",
+    srcs: ["lib/libstatslog_threadnetwork.a"],
+    export_include_dirs: ["include"],
+    apex_available: [
+        "com.android.tethering",
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+}
+
+cc_prebuilt_library_static {
+    name: "ot-daemon-aidl-ndk",
+    srcs: ["lib/libot-daemon-aidl-ndk.a"],
+    export_include_dirs: ["include"],
+    apex_available: [
+        "com.android.tethering",
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+}
